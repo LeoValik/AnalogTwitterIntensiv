@@ -1,3 +1,19 @@
+<?php
+
+require_once("config.php"); // config
+require_once("db.php"); // $link
+require_once("getTweets.php"); //$tweets
+
+
+
+
+
+
+
+
+?>
+
+
 <!doctype html>
 <html lang="ru">
   <head>
@@ -81,7 +97,31 @@
 					
 					<div id="tweetsList">
 
-						
+						<?php foreach ($tweets as $tweet) { ?>
+						 	
+						<div class="card tweet-card">			
+							<div class="tweet-date"><?php echo $tweet['date'] ?></div>
+
+							<!-- Определяем какой font-size будет у твита -->
+							<?php 
+								$textClass = "font-size-normal";
+								$stringNoTags = strip_tags($tweet['text']); //Убирает из строки HTML-тэги
+
+								if ( mb_strlen($stringNoTags) < 100) {
+									$textClass = "font-size-large";
+								} else if ( mb_strlen($stringNoTags) > 150)  {
+									$textClass = "font-size-small";
+								}
+
+							 ?>
+
+							<div class="tweet-text <?php echo $textClass; ?>">
+								<p><?php echo $tweet['text'] ?></p>
+							</div>
+						</div>
+						<?php } ?>
+
+				
 					</div>
 
 					<!-- // Tweets List -->
@@ -119,6 +159,6 @@
     <script src="libs/jquery/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+   <!--  <script src="js/main.js"></script> -->
   </body>
 </html>
