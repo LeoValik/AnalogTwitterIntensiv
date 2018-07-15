@@ -1,0 +1,10 @@
+.hide {
+  display: none;
+}
+.tweet-card {
+  -webkit-transition: background-color 4s ease-out;
+  transition: background-color 4s ease-out;
+}
+.tweet-card.new {
+  background-color: #D4F5BE;
+}

@@ -1,7 +1,7 @@
 <?php 
 
 // Формируем запрос
-$query = "SELECT * FROM tweets";
+$query = "SELECT * FROM tweets ORDER BY date DESC";
 //Делаем запрос
 $result = mysqli_query($link, $query);
 //Если он не произошел - выводим ошибку

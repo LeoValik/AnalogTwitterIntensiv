@@ -1,5 +1,5 @@
 body {
-  background-color: #D5e0ed;
+  background-color: #d5e0ed;
   font-family: 'Noto Sans', sans-serif;
   padding-top: 20px;
 }
@@ -37,16 +37,25 @@ body {
   text-align: center;
 }
 .stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0;
   padding: 0;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
 }
 .stats-item {
   list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding-left: 25px;
   padding-right: 25px;
 }
@@ -55,7 +64,7 @@ body {
   color: #8CB0BB;
 }
 .stats-count {
-  color: #087DE1;
+  color: #087de1;
   font-size: 22px;
   font-weight: 600;
 }
@@ -97,6 +106,7 @@ body {
 .font-size-large p {
   font-size: 22px;
 }
+
 .footer {
   color: #538994;
   text-align: center;
