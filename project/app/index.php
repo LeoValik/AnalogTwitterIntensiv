@@ -24,8 +24,10 @@ require_once("getTweets.php"); //$tweets
     <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/tweet.css">
+	<link rel="stylesheet" href="css/like.css">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Serif:400,400i&amp;subset=cyrillic-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   </head>
   <body>
 
@@ -49,11 +51,11 @@ require_once("getTweets.php"); //$tweets
 							<li class="stats-item">
 								<b class="stats-title">Твиты</b>
 								<b class="stats-count" id="tweetsCounter"><?php echo $numRows; ?></b>
-							</li>		<!--
-							<li class="stats-item">
-								<b class="stats-title">Лайки</b>
-								<b class="stats-count">217</b>
-							</li>
+							</li>		
+								<li class="stats-item">
+									<b class="stats-title">Лайки</b>
+									<b id="likeCount" class="stats-count">0</b>
+								</li> <!--
 							<li class="stats-item">
 								<b class="stats-title">Репосты</b>
 								<b class="stats-count">15</b>
@@ -127,6 +129,10 @@ require_once("getTweets.php"); //$tweets
 
 							<div class="tweet-text <?php echo $textClass; ?>">
 								<p><?php echo $tweet['text'] ?></p>
+							</div>
+							<div id="<?=$tweet['id']?>" class="like">
+								<p>Мне нравится</p>
+								<i class="far fa-heart"></i>
 							</div>
 						</div>
 						<?php } ?>

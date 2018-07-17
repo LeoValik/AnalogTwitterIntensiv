@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	// Переменные с '$' означают что в них находится jQuery код!
-
+	let likes = 0;
+	let idValue = 0;
+	let $tweetLikeIcon;
 	//Wraps all URLs in anchor tags with a `href` and `target` inside some given text.
 	// Источник функции - https://gist.github.com/ryansmith94/0fb9f6042c1e0af0d74f
 	var wrapURLs = function (text, new_window) {
@@ -88,7 +90,10 @@ $(document).ready(function() {
 				$('#tweetsCounter').text(counter);
 			}
 		}
-	
+	//Считаем кол-во лайков
+	let countLikes = function() {
+		$('#likeCount').text(likes);
+	}
 	// Форма отправки  твитта
 	$('#postNewTweet').on('submit', function(e){
 		e.preventDefault();
@@ -124,4 +129,23 @@ $(document).ready(function() {
 
 	});
 
+	//Like
+	$('.like').on('click', function(e) {
+
+		var likeId = $(this).attr('id');
+		console.log(likeId);
+		// e.preventDefault();
+		if($(this).hasClass('active')) {
+			$(this).removeClass("active");
+			$(this).find('.fa-heart').removeClass('fas').addClass('far');
+			likes--;
+			countLikes();
+		}
+		else {
+			$(this).addClass("active");
+			$(this).find('.fa-heart').removeClass('far').addClass('fas');
+			likes++;
+			countLikes();
+		}
+	})
 });
